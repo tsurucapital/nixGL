@@ -20,6 +20,6 @@ let
     '';
   });
 in
-  (with pure; [nixGLIntel nixVulkanNvidia nixGLNvidia nixVulkanIntel])
+  (with pure; [nixGLIntel nixVulkanNvidia nixGLNvidia nixVulkanIntel nixGLMesa nixGLMesaVulkan])
    ++ (with versionFile440.auto; [nixGLNvidia nixGLDefault nixVulkanNvidia])
    ++ (with versionFile510.auto; [nixGLNvidia nixGLDefault nixVulkanNvidia])

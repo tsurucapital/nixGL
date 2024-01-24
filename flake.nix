@@ -25,6 +25,8 @@
           nixGLIntel = pkgs.nixGLIntel;
           nixVulkanNvidia = pkgs.auto.nixVulkanNvidia;
           nixVulkanIntel = pkgs.nixVulkanIntel;
+          nixGLMesa = pkgs.nixGLMesa;
+          nixVulkanMesa = pkgs.nixVulkanMesa;
         };
 
         # deprecated attributes for retro compatibility

@@ -9,17 +9,17 @@
   # /proc/driver/nvidia/version. Nix doesn't like zero-sized files (see
   # https://github.com/NixOS/nix/issues/3539 ).
   nvidiaVersionFile ? null,
-  # Enable 32 bits driver
-  # This is on by default, you can switch it to off if you want to reduce a
-  # bit the size of nixGL closure.
-  enable32bits ? true,
   # Make sure to enable config.allowUnfree to the instance of nixpkgs to be
   # able to access the nvidia drivers.
   pkgs ? import <nixpkgs> {
     config = { allowUnfree = true; };
   },
+  # Enable 32 bits driver
+  # This is on by default, you can switch it to off if you want to reduce a
+  # bit the size of nixGL closure.
+  enable32bits ? pkgs.stdenv.hostPlatform.isx86,
   # Enable all Intel specific extensions which only works on x86_64
-  enableIntelX86Extensions ? true
+		enableIntelX86Extensions ? pkgs.stdenv.hostPlatform.isx86
 }:
 pkgs.callPackage ./nixGL.nix ({
   inherit
